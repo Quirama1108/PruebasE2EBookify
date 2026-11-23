@@ -1,0 +1,3 @@
+Base bookify_qa recreada en 127.0.0.1:5544
+Ya hay un servicio en 8090; se reutiliza
+API lista en http://localhost:8090/api/v1

@@ -1,0 +1,13 @@
+{
+ "corrida": "aceptacion",
+ "comando": "./gradlew aceptacion --rerun-tasks",
+ "hora_utc": "2026-11-23T21:21:10Z",
+ "codigo_salida": 0,
+ "duracion_total_s": 18.4,
+ "total": 18,
+ "pasan": 18,
+ "fallan": 0,
+ "omitidos": 0,
+ "suma_escenarios_s": 10.83,
+ "fallas": []
+}

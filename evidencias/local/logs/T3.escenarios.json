@@ -1,0 +1,8 @@
+[
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede dejar una cita a nombre de Ana",
+  "estado": "falla",
+  "duracion_s": 3.385,
+  "primera_linea": "Expected: \"RECHAZADA O A NOMBRE PROPIO\" but: was \"CITA REGISTRADA A NOMBRE DE OTRO CLIENTE\""
+ }
+]

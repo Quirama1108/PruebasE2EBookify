@@ -1,0 +1,68 @@
+{
+ "recurso_antes": "fbe569c3-6c55-4b64-aa53-87f1c001db95",
+ "recurso_despues_de_reservar": "NULL",
+ "pasos": [
+  {
+   "utc": "2026-11-23T21:14:18.596068+00:00",
+   "metodo": "POST",
+   "ruta": "/bookings",
+   "peticion": {
+    "clienteId": "0308f782-868f-4744-a3af-a7d93a37bdae",
+    "disponibilidadId": "31385ada-8c1b-4267-bb4a-ab77e758cfaf",
+    "servicioId": "aaaaaaaa-0000-4000-8000-000000000001"
+   },
+   "codigo": 201,
+   "respuesta": {
+    "id": "818ee43e-1916-42f0-8302-94df435cff53",
+    "clienteId": "0308f782-868f-4744-a3af-a7d93a37bdae",
+    "disponibilidadId": "31385ada-8c1b-4267-bb4a-ab77e758cfaf",
+    "estadoReservaId": 1,
+    "fechaReserva": "2026-11-23T16:14:18.5545734-05:00",
+    "notas": null
+   }
+  },
+  {
+   "utc": "2026-11-23T21:14:18.694162+00:00",
+   "metodo": "PATCH",
+   "ruta": "/bookings/818ee43e-1916-42f0-8302-94df435cff53/cancel",
+   "peticion": null,
+   "codigo": 500,
+   "respuesta": {
+    "timestamp": "2026-11-23T21:14:18.693Z",
+    "status": 500,
+    "error": "Internal Server Error",
+    "path": "/api/v1/bookings/818ee43e-1916-42f0-8302-94df435cff53/cancel"
+   }
+  },
+  {
+   "utc": "2026-11-23T21:14:18.699048+00:00",
+   "metodo": "GET",
+   "ruta": "/reservas/historial",
+   "peticion": null,
+   "codigo": 500,
+   "respuesta": {
+    "timestamp": "2026-11-23T21:14:18.698Z",
+    "status": 500,
+    "error": "Internal Server Error",
+    "path": "/api/v1/reservas/historial"
+   }
+  },
+  {
+   "utc": "2026-11-23T21:14:18.879081+00:00",
+   "metodo": "POST",
+   "ruta": "/bookings",
+   "peticion": {
+    "clienteId": "0308f782-868f-4744-a3af-a7d93a37bdae",
+    "disponibilidadId": "63f04dbc-c4c7-44ef-9024-a6ba98db0c40",
+    "servicioId": "bbbbbbbb-0000-4000-8000-000000000001"
+   },
+   "codigo": 500,
+   "respuesta": {
+    "timestamp": "2026-11-23T21:14:18.878Z",
+    "status": 500,
+    "error": "Internal Server Error",
+    "path": "/api/v1/bookings"
+   }
+  }
+ ]
+}

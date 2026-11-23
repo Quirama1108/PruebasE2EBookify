@@ -1,0 +1,8 @@
+[
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Ana reserva una cita y la Barbería la registra como atendida",
+  "estado": "pasa",
+  "duracion_s": 3.287,
+  "primera_linea": ""
+ }
+]

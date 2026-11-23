@@ -1,0 +1,134 @@
+[
+ {
+  "escenario": "Crear una reserva :: No se puede reservar un horario que ya comenzó",
+  "estado": "falla",
+  "duracion_s": 0.614,
+  "primera_linea": "Expected: \"RECHAZO: HORARIO_YA_COMENZO\" but: was \"ACEPTADA\""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita cancelada",
+  "estado": "pasa",
+  "duracion_s": 0.69,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita que está en curso",
+  "estado": "pasa",
+  "duracion_s": 0.67,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita que no ha comenzado",
+  "estado": "pasa",
+  "duracion_s": 0.742,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita cancelada",
+  "estado": "pasa",
+  "duracion_s": 0.652,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita que está en curso",
+  "estado": "pasa",
+  "duracion_s": 0.669,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita que no ha comenzado",
+  "estado": "pasa",
+  "duracion_s": 0.677,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: Un negocio no puede registrar la asistencia de una cita de otro negocio",
+  "estado": "pasa",
+  "duracion_s": 0.679,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se acepta un horario que empieza justo cuando termina el existente",
+  "estado": "pasa",
+  "duracion_s": 0.156,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario cuya hora final es anterior a la inicial",
+  "estado": "pasa",
+  "duracion_s": 0.148,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario cuya hora final es igual a la inicial",
+  "estado": "pasa",
+  "duracion_s": 0.133,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que contiene por completo al existente",
+  "estado": "pasa",
+  "duracion_s": 0.202,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que empieza dentro del existente",
+  "estado": "pasa",
+  "duracion_s": 0.194,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que es igual al existente",
+  "estado": "pasa",
+  "duracion_s": 0.199,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que está contenido en el existente",
+  "estado": "pasa",
+  "duracion_s": 0.199,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que termina dentro del existente",
+  "estado": "pasa",
+  "duracion_s": 0.222,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Un horario válido queda disponible y los clientes lo ven",
+  "estado": "pasa",
+  "duracion_s": 2.814,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Ana reserva un horario que la Barbería acaba de publicar",
+  "estado": "falla",
+  "duracion_s": 0.537,
+  "primera_linea": "Expected: \"ACEPTADA\" but: was \"HTTP 500 {\\\"timestamp\\\":\\\"2026-11-23T21:19:00.101Z\\\",\\\"status\\\":500,\\\"error\\\":\\\"Internal Server Error\\\",\\\"path\\\":\\\"/api/v1/bookings\\\"}\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Ana reserva una cita y la Barbería la registra como atendida",
+  "estado": "pasa",
+  "duracion_s": 0.657,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: El Spa no puede publicar horarios en la agenda de la Barbería",
+  "estado": "falla",
+  "duracion_s": 0.181,
+  "primera_linea": "Expected: \"RECHAZO: DE_OTRO_NEGOCIO\" but: was \"ACEPTADA\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede dejar una cita a nombre de Ana",
+  "estado": "falla",
+  "duracion_s": 0.916,
+  "primera_linea": "Expected: \"RECHAZADA O A NOMBRE PROPIO\" but: was \"CITA REGISTRADA A NOMBRE DE OTRO CLIENTE\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede tomar el horario de Ana y Ana no asiste a su cita",
+  "estado": "pasa",
+  "duracion_s": 1.07,
+  "primera_linea": ""
+ }
+]

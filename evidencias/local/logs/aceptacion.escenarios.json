@@ -1,0 +1,110 @@
+[
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita cancelada",
+  "estado": "pasa",
+  "duracion_s": 0.66,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita que está en curso",
+  "estado": "pasa",
+  "duracion_s": 0.67,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"atendida\" en una cita que no ha comenzado",
+  "estado": "pasa",
+  "duracion_s": 0.707,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita cancelada",
+  "estado": "pasa",
+  "duracion_s": 0.663,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita que está en curso",
+  "estado": "pasa",
+  "duracion_s": 0.654,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: No se registra \"no asistió\" en una cita que no ha comenzado",
+  "estado": "pasa",
+  "duracion_s": 0.637,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar asistencia o inasistencia :: Un negocio no puede registrar la asistencia de una cita de otro negocio",
+  "estado": "pasa",
+  "duracion_s": 0.71,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se acepta un horario que empieza justo cuando termina el existente",
+  "estado": "pasa",
+  "duracion_s": 0.157,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario cuya hora final es anterior a la inicial",
+  "estado": "pasa",
+  "duracion_s": 0.141,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario cuya hora final es igual a la inicial",
+  "estado": "pasa",
+  "duracion_s": 0.142,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que contiene por completo al existente",
+  "estado": "pasa",
+  "duracion_s": 0.207,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que empieza dentro del existente",
+  "estado": "pasa",
+  "duracion_s": 0.19,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que es igual al existente",
+  "estado": "pasa",
+  "duracion_s": 0.19,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que está contenido en el existente",
+  "estado": "pasa",
+  "duracion_s": 0.19,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Se rechaza un horario que termina dentro del existente",
+  "estado": "pasa",
+  "duracion_s": 0.224,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Registrar disponibilidad del proveedor :: Un horario válido queda disponible y los clientes lo ven",
+  "estado": "pasa",
+  "duracion_s": 2.977,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Ana reserva una cita y la Barbería la registra como atendida",
+  "estado": "pasa",
+  "duracion_s": 0.661,
+  "primera_linea": ""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede tomar el horario de Ana y Ana no asiste a su cita",
+  "estado": "pasa",
+  "duracion_s": 1.048,
+  "primera_linea": ""
+ }
+]

@@ -1,0 +1,13 @@
+{
+ "corrida": "T1",
+ "comando": "./gradlew test -Dcucumber.filter.tags=@T1 --rerun-tasks",
+ "hora_utc": "2026-11-23T21:20:12Z",
+ "codigo_salida": 0,
+ "duracion_total_s": 11.5,
+ "total": 1,
+ "pasan": 1,
+ "fallan": 0,
+ "omitidos": 0,
+ "suma_escenarios_s": 3.29,
+ "fallas": []
+}

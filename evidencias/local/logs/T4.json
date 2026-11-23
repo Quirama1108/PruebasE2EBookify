@@ -1,0 +1,18 @@
+{
+ "corrida": "T4",
+ "comando": "./gradlew test -Dcucumber.filter.tags=@T4 --rerun-tasks",
+ "hora_utc": "2026-11-23T21:20:48Z",
+ "codigo_salida": 1,
+ "duracion_total_s": 10.5,
+ "total": 1,
+ "pasan": 0,
+ "fallan": 1,
+ "omitidos": 0,
+ "suma_escenarios_s": 2.81,
+ "fallas": [
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: El Spa no puede publicar horarios en la agenda de la Barbería",
+   "primera_linea": "Expected: \"RECHAZO: DE_OTRO_NEGOCIO\" but: was \"ACEPTADA\""
+  }
+ ]
+}

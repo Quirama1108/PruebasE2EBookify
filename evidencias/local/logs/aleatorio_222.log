@@ -1,0 +1,669 @@
+
+> Task :compileJava
+Note: C:\Users\Quirama\Desktop\20262\CodeFactory20262\bookify-QA-e2e\e2e\src\main\java\co\edu\udea\certificacion\bookify\questions\OfertaDeHorarios.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources
+> Task :testClasses
+
+> Task :aleatorio
+Semilla del orden aleatorio: 222
+[main] INFO  - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+                                                                                     
+ News and tutorials at https://serenity-bdd.info                                     
+ Documentation at https://serenity-bdd.github.io                                     
+ Test Automation Training and Coaching: https://www.serenity-dojo.com                
+ Commercial Support: https://www.serenity-dojo.com/serenity-bdd-enterprise-support   
+ Join the Serenity Community on Gitter: https://gitter.im/serenity-bdd/serenity-core 
+-------------------------------------------------------------------------------------
+
+[main] INFO  - Test Suite Started: Registrar disponibilidad del proveedor
+[main] INFO  - Test Suite Started: Crear una reserva
+[main] INFO  - Test Suite Started: Registrar asistencia o inasistencia
+[main] INFO  - Test Suite Started: Transacciones de punta a punta de una reserva
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario que <cruce>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-que-<cruce>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario que es igual al existente        # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:31
+  Dado que la Barbería tiene un día sin horarios publicados                   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"               # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería intenta publicar ese día un horario de "10:00" a "11:00" # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación e informa un conflicto de horarios  # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorConflicto()
+  Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.conservaUnicamente(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario que <cruce>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-que-<momento>)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "no asistió" en una cita que está en curso # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:23
+  Dado que Ana tiene una cita confirmada con la Barbería que está en curso       # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.tieneUnaCitaEnCurso()
+  Cuando la Barbería intenta marcar la cita de Ana como "no asistió"             # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita no ha terminado            # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorNoTerminada()
+  Y la cita de Ana figura como "confirmada" en el historial de la Barbería       # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                  # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita cancelada(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-cancelada)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "atendida" en una cita cancelada              # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:35
+  Dado que Ana tenía una cita con la Barbería que fue cancelada y cuya hora ya pasó # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.teniaUnaCitaCancelada()
+  Cuando la Barbería intenta marcar la cita de Ana como "atendida"                  # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita está cancelada                # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorCancelada()
+  Y la cita de Ana figura como "cancelada" en el historial de la Barbería           # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                     # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita cancelada
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Un horario válido queda disponible y los clientes lo ven(registrar-disponibilidad-del-proveedor;un-horario-válido-queda-disponible-y-los-clientes-lo-ven)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Escenario: Un horario válido queda disponible y los clientes lo ven              # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:11
+  Dado que la Barbería tiene un día sin horarios publicados                      # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Cuando la Barbería publica ese día un horario de "10:00" a "11:00"             # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces el horario de "10:00" a "11:00" queda guardado como disponible        # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.quedaGuardado(java.lang.String,java.lang.String)
+  Y los clientes ven el horario de "10:00" a "11:00" en la oferta de la Barbería # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.losClientesVenElHorario(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Un horario válido queda disponible y los clientes lo ven
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita cancelada(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-cancelada)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "no asistió" en una cita cancelada            # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:36
+  Dado que Ana tenía una cita con la Barbería que fue cancelada y cuya hora ya pasó # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.teniaUnaCitaCancelada()
+  Cuando la Barbería intenta marcar la cita de Ana como "no asistió"                # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita está cancelada                # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorCancelada()
+  Y la cita de Ana figura como "cancelada" en el historial de la Barbería           # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                     # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita cancelada
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se acepta un horario que empieza justo cuando termina el existente(registrar-disponibilidad-del-proveedor;se-acepta-un-horario-que-empieza-justo-cuando-termina-el-existente)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Escenario: Se acepta un horario que empieza justo cuando termina el existente # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:34
+  Dado que la Barbería tiene un día sin horarios publicados                   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"               # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería publica ese día un horario de "11:00" a "12:00"          # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces el horario de "11:00" a "12:00" queda guardado como disponible     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.quedaGuardado(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se acepta un horario que empieza justo cuando termina el existente
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-que-<momento>)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "atendida" en una cita que no ha comenzado # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:20
+  Dado que Ana tiene una cita confirmada con la Barbería que no ha comenzado     # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.tieneUnaCitaConfirmada()
+  Cuando la Barbería intenta marcar la cita de Ana como "atendida"               # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita no ha terminado            # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorNoTerminada()
+  Y la cita de Ana figura como "confirmada" en el historial de la Barbería       # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                  # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario que <cruce>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-que-<cruce>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario que termina dentro del existente # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:27
+  Dado que la Barbería tiene un día sin horarios publicados                   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"               # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería intenta publicar ese día un horario de "09:30" a "10:30" # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación e informa un conflicto de horarios  # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorConflicto()
+  Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.conservaUnicamente(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario que <cruce>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Ana reserva un horario que la Barbería acaba de publicar(transacciones-de-punta-a-punta-de-una-reserva;ana-reserva-un-horario-que-la-barbería-acaba-de-publicar)
+--------------------------------------------------------------------------------
+
+@T5 @HU-01 @HU-03 @defecto @bug-187
+Escenario: Ana reserva un horario que la Barbería acaba de publicar # src/test/resources/features/reservas/transacciones_e2e.feature:48
+  Dado que la Barbería tiene un día sin horarios publicados         # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando Ana reserva ese horario                                    # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reserva(java.lang.String)
+  Entonces la reserva de Ana queda confirmada                       # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.quedaConfirmada(java.lang.String)
+      java.lang.AssertionError: 
+Expected: "ACEPTADA"
+     but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:19:50.022Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.quedaConfirmada(ReservaStepDefinitions.java:94)
+	at ✽.la reserva de Ana queda confirmada(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:52)
+
+  Y ese horario ya no aparece en la oferta de la Barbería           # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.yaNoApareceEnLaOferta()
+[main] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+Ana reserva un horario que la Barbería acaba de publicar
+-----------------------------------------------------------------------
+[main] ERROR  -     Test failed at step: Then la respuesta de Bookify should be 'ACEPTADA'
+[main] ERROR  -     Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:19:50.022Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Luis no puede tomar el horario de Ana y Ana no asiste a su cita(transacciones-de-punta-a-punta-de-una-reserva;luis-no-puede-tomar-el-horario-de-ana-y-ana-no-asiste-a-su-cita)
+--------------------------------------------------------------------------------
+
+@T2 @HU-03 @HU-17 @aceptacion
+Escenario: Luis no puede tomar el horario de Ana y Ana no asiste a su cita            # src/test/resources/features/reservas/transacciones_e2e.feature:21
+  Dado que la Barbería tiene un horario libre para su servicio                        # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnHorarioLibre()
+  Cuando Ana reserva ese horario                                                      # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reserva(java.lang.String)
+  Entonces la reserva de Ana queda confirmada                                         # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.quedaConfirmada(java.lang.String)
+  Cuando Luis intenta reservar ese horario                                            # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reserva(java.lang.String)
+  Entonces Bookify rechaza la reserva de Luis porque el horario ya no está disponible # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaPorNoDisponible(java.lang.String)
+  Y el horario conserva una única reserva, a nombre de Ana                            # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.conservaUnaUnicaReserva(java.lang.String)
+  Cuando termina la hora de la cita de Ana                                            # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.terminaLaHora()
+  Y la Barbería marca la cita de Ana como "no asistió"                                # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces la cita de Ana figura como "no asistió" en el historial de la Barbería     # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y queda registrado que la Barbería cambió la cita de "confirmada" a "no asistió"    # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.quedaRegistrado(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Luis no puede tomar el horario de Ana y Ana no asiste a su cita
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario que <cruce>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-que-<cruce>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario que está contenido en el existente # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:29
+  Dado que la Barbería tiene un día sin horarios publicados                     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"                 # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería intenta publicar ese día un horario de "10:15" a "10:45"   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación e informa un conflicto de horarios    # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorConflicto()
+  Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.conservaUnicamente(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario que <cruce>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Un negocio no puede registrar la asistencia de una cita de otro negocio(registrar-asistencia-o-inasistencia;un-negocio-no-puede-registrar-la-asistencia-de-una-cita-de-otro-negocio)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Escenario: Un negocio no puede registrar la asistencia de una cita de otro negocio # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:39
+  Dado que Ana tiene una cita confirmada con la Barbería que ya terminó            # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.tieneUnaCitaTerminada()
+  Cuando el Spa intenta marcar la cita de Ana como "atendida"                      # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.elSpaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita es de otro negocio           # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorCitaAjena()
+  Y la cita de Ana figura como "confirmada" en el historial de la Barbería         # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                    # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Un negocio no puede registrar la asistencia de una cita de otro negocio
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario cuya hora final <motivo>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-cuya-hora-final-<motivo>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario cuya hora final es anterior a la inicial # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:49
+  Dado que la Barbería tiene un día sin horarios publicados                           # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Cuando la Barbería intenta publicar ese día un horario de "11:00" a "10:00"         # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación porque las horas no son válidas             # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorHoras()
+  Y la Barbería sigue sin horarios publicados ese día                                 # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.sigueSinHorarios()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario cuya hora final <motivo>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se puede reservar un horario que ya comenzó(crear-una-reserva;no-se-puede-reservar-un-horario-que-ya-comenzó)
+--------------------------------------------------------------------------------
+
+@HU-03 @defecto @bug-183
+Escenario: No se puede reservar un horario que ya comenzó                 # src/test/resources/features/reservas/hu03_crear_reserva.feature:11
+  Dado que la Barbería tiene un horario sin reservar que ya comenzó       # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnHorarioQueYaComenzo()
+  Cuando Ana intenta reservar ese horario                                 # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reserva(java.lang.String)
+  Entonces Bookify rechaza la reserva de Ana porque el horario ya comenzó # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaPorHorarioComenzado(java.lang.String)
+      java.lang.AssertionError: 
+Expected: "RECHAZO: HORARIO_YA_COMENZO"
+     but: was "ACEPTADA"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaPorHorarioComenzado(ReservaStepDefinitions.java:105)
+	at ✽.Bookify rechaza la reserva de Ana porque el horario ya comenzó(e2e/src/test/resources/features/reservas/hu03_crear_reserva.feature:14)
+
+  Y Ana no tiene ninguna cita en ese horario                              # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.noTieneCita(java.lang.String)
+[main] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+No se puede reservar un horario que ya comenzó
+-----------------------------------------------------------------------
+[main] ERROR  -     Test failed at step: Then el rechazo por HORARIO_YA_COMENZO should be 'RECHAZO: HORARIO_YA_COMENZO'
+[main] ERROR  -     Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "ACEPTADA"
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Ana reserva una cita y la Barbería la registra como atendida(transacciones-de-punta-a-punta-de-una-reserva;ana-reserva-una-cita-y-la-barbería-la-registra-como-atendida)
+--------------------------------------------------------------------------------
+
+@T1 @HU-03 @HU-17 @aceptacion
+Escenario: Ana reserva una cita y la Barbería la registra como atendida          # src/test/resources/features/reservas/transacciones_e2e.feature:8
+  Dado que la Barbería tiene un horario libre para su servicio                   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnHorarioLibre()
+  Cuando Ana consulta la oferta de la Barbería                                   # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.consultaLaOferta(java.lang.String)
+  Entonces Ana encuentra ese horario en la oferta                                # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.encuentraElHorario(java.lang.String)
+  Cuando Ana reserva ese horario                                                 # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reserva(java.lang.String)
+  Entonces la reserva de Ana queda confirmada                                    # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.quedaConfirmada(java.lang.String)
+  Y ese horario ya no aparece en la oferta de la Barbería                        # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.yaNoApareceEnLaOferta()
+  Cuando termina la hora de la cita de Ana                                       # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.terminaLaHora()
+  Y la Barbería marca la cita de Ana como "atendida"                             # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces la cita de Ana figura como "atendida" en el historial de la Barbería  # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y queda registrado que la Barbería cambió la cita de "confirmada" a "atendida" # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.quedaRegistrado(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Ana reserva una cita y la Barbería la registra como atendida
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-que-<momento>)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "atendida" en una cita que está en curso # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:22
+  Dado que Ana tiene una cita confirmada con la Barbería que está en curso     # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.tieneUnaCitaEnCurso()
+  Cuando la Barbería intenta marcar la cita de Ana como "atendida"             # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita no ha terminado          # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorNoTerminada()
+  Y la cita de Ana figura como "confirmada" en el historial de la Barbería     # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario cuya hora final <motivo>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-cuya-hora-final-<motivo>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario cuya hora final es igual a la inicial # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:50
+  Dado que la Barbería tiene un día sin horarios publicados                        # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Cuando la Barbería intenta publicar ese día un horario de "10:00" a "10:00"      # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación porque las horas no son válidas          # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorHoras()
+  Y la Barbería sigue sin horarios publicados ese día                              # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.sigueSinHorarios()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario cuya hora final <motivo>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Luis no puede dejar una cita a nombre de Ana(transacciones-de-punta-a-punta-de-una-reserva;luis-no-puede-dejar-una-cita-a-nombre-de-ana)
+--------------------------------------------------------------------------------
+
+@T3 @HU-03 @defecto @bug-291
+Escenario: Luis no puede dejar una cita a nombre de Ana                     # src/test/resources/features/reservas/transacciones_e2e.feature:34
+  Dado que la Barbería tiene un horario libre para su servicio              # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnHorarioLibre()
+  Cuando Luis intenta reservar ese horario a nombre de Ana                  # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.reservaANombreDe(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la solicitud o registra la cita a nombre de Luis # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaORegistraANombreDe(java.lang.String)
+      java.lang.AssertionError: 
+Expected: "RECHAZADA O A NOMBRE PROPIO"
+     but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaORegistraANombreDe(ReservaStepDefinitions.java:112)
+	at ✽.Bookify rechaza la solicitud o registra la cita a nombre de Luis(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:37)
+
+  Y Ana no tiene ninguna cita en ese horario                                # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.noTieneCita(java.lang.String)
+[main] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+Luis no puede dejar una cita a nombre de Ana
+-----------------------------------------------------------------------
+[main] ERROR  -     Test failed at step: Then el rechazo o la cita a nombre propio should be 'RECHAZADA O A NOMBRE PROPIO'
+[main] ERROR  -     Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Se rechaza un horario que <cruce>(registrar-disponibilidad-del-proveedor;se-rechaza-un-horario-que-<cruce>)
+--------------------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario que contiene por completo al existente # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:30
+  Dado que la Barbería tiene un día sin horarios publicados                         # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"                     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería intenta publicar ese día un horario de "09:00" a "12:00"       # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación e informa un conflicto de horarios        # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorConflicto()
+  Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"         # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.conservaUnicamente(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario que <cruce>
+----------------------------------------------------------------------
+
+@HU-01 @aceptacion
+Esquema del escenario: Se rechaza un horario que empieza dentro del existente # src/test/resources/features/reservas/hu01_registrar_disponibilidad.feature:28
+  Dado que la Barbería tiene un día sin horarios publicados                   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Y la Barbería publicó ese día un horario de "10:00" a "11:00"               # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publicoUnHorario(java.lang.String,java.lang.String)
+  Cuando la Barbería intenta publicar ese día un horario de "10:30" a "11:30" # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.publica(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza la publicación e informa un conflicto de horarios  # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorConflicto()
+  Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.conservaUnicamente(java.lang.String,java.lang.String)
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Se rechaza un horario que <cruce>
+----------------------------------------------------------------------
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+El Spa no puede publicar horarios en la agenda de la Barbería(transacciones-de-punta-a-punta-de-una-reserva;el-spa-no-puede-publicar-horarios-en-la-agenda-de-la-barbería)
+--------------------------------------------------------------------------------
+
+@T4 @HU-01 @defecto @bug-189
+Escenario: El Spa no puede publicar horarios en la agenda de la Barbería        # src/test/resources/features/reservas/transacciones_e2e.feature:41
+  Dado que la Barbería tiene un día sin horarios publicados                     # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.tieneUnDiaSinHorarios()
+  Cuando el Spa intenta publicar un horario ese día en la agenda de la Barbería # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.elSpaPublicaEnAgendaAjena()
+  Entonces Bookify rechaza la publicación porque la agenda es de otro negocio   # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorAgendaAjena()
+      java.lang.AssertionError: 
+Expected: "RECHAZO: DE_OTRO_NEGOCIO"
+     but: was "ACEPTADA"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorAgendaAjena(DisponibilidadStepDefinitions.java:97)
+	at ✽.Bookify rechaza la publicación porque la agenda es de otro negocio(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:44)
+
+  Y la Barbería sigue sin horarios publicados ese día                           # co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.sigueSinHorarios()
+[main] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+El Spa no puede publicar horarios en la agenda de la Barbería
+-----------------------------------------------------------------------
+[main] ERROR  -     Test failed at step: Then el rechazo por DE_OTRO_NEGOCIO should be 'RECHAZO: DE_OTRO_NEGOCIO'
+[main] ERROR  -     Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+[main] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>(registrar-asistencia-o-inasistencia;no-se-registra-"<resultado>"-en-una-cita-que-<momento>)
+--------------------------------------------------------------------------------
+
+@HU-17 @aceptacion
+Esquema del escenario: No se registra "no asistió" en una cita que no ha comenzado # src/test/resources/features/reservas/hu17_registrar_asistencia.feature:21
+  Dado que Ana tiene una cita confirmada con la Barbería que no ha comenzado       # co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.tieneUnaCitaConfirmada()
+  Cuando la Barbería intenta marcar la cita de Ana como "no asistió"               # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.laBarberiaMarca(java.lang.String,java.lang.String)
+  Entonces Bookify rechaza el registro porque la cita no ha terminado              # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.rechazaPorNoTerminada()
+  Y la cita de Ana figura como "confirmada" en el historial de la Barbería         # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.figuraComo(java.lang.String,java.lang.String)
+  Y no queda registro de asistencia de esa cita                                    # co.edu.udea.certificacion.bookify.stepdefinitions.AsistenciaStepDefinitions.noQuedaRegistro()
+[main] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+No se registra "<resultado>" en una cita que <momento>
+----------------------------------------------------------------------
+
+Failed scenarios:
+e2e/src/test/resources/features/reservas/transacciones_e2e.feature:48 # Ana reserva un horario que la Barbería acaba de publicar
+e2e/src/test/resources/features/reservas/hu03_crear_reserva.feature:11 # No se puede reservar un horario que ya comenzó
+e2e/src/test/resources/features/reservas/transacciones_e2e.feature:34 # Luis no puede dejar una cita a nombre de Ana
+e2e/src/test/resources/features/reservas/transacciones_e2e.feature:41 # El Spa no puede publicar horarios en la agenda de la Barbería
+
+22 Scenarios (4 failed, 18 passed)
+113 Steps (4 failed, 4 skipped, 105 passed)
+0m13.291s
+
+
+java.lang.AssertionError: 
+Expected: "ACEPTADA"
+     but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:19:50.022Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.quedaConfirmada(ReservaStepDefinitions.java:94)
+	at ✽.la reserva de Ana queda confirmada(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:52)
+
+java.lang.AssertionError: 
+Expected: "RECHAZO: HORARIO_YA_COMENZO"
+     but: was "ACEPTADA"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaPorHorarioComenzado(ReservaStepDefinitions.java:105)
+	at ✽.Bookify rechaza la reserva de Ana porque el horario ya comenzó(e2e/src/test/resources/features/reservas/hu03_crear_reserva.feature:14)
+
+java.lang.AssertionError: 
+Expected: "RECHAZADA O A NOMBRE PROPIO"
+     but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.ReservaStepDefinitions.rechazaORegistraANombreDe(ReservaStepDefinitions.java:112)
+	at ✽.Bookify rechaza la solicitud o registra la cita a nombre de Luis(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:37)
+
+java.lang.AssertionError: 
+Expected: "RECHAZO: DE_OTRO_NEGOCIO"
+     but: was "ACEPTADA"
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazaPorAgendaAjena(DisponibilidadStepDefinitions.java:97)
+	at ✽.Bookify rechaza la publicación porque la agenda es de otro negocio(e2e/src/test/resources/features/reservas/transacciones_e2e.feature:44)
+
+
+
+> Task :aleatorio FAILED
+
+[Incubating] Problems report is available at: e2e/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':aleatorio'.
+> Process 'command 'C:\Program Files\Java\jdk-17\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 16s
+4 actionable tasks: 4 executed

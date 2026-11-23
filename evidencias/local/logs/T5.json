@@ -1,0 +1,18 @@
+{
+ "corrida": "T5",
+ "comando": "./gradlew test -Dcucumber.filter.tags=@T5 --rerun-tasks",
+ "hora_utc": "2026-11-23T21:20:58Z",
+ "codigo_salida": 1,
+ "duracion_total_s": 10.9,
+ "total": 1,
+ "pasan": 0,
+ "fallan": 1,
+ "omitidos": 0,
+ "suma_escenarios_s": 2.98,
+ "fallas": [
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: Ana reserva un horario que la Barbería acaba de publicar",
+   "primera_linea": "Expected: \"ACEPTADA\" but: was \"HTTP 500 {\\\"timestamp\\\":\\\"2026-11-23T21:21:07.124Z\\\",\\\"status\\\":500,\\\"error\\\":\\\"Internal Server Error\\\",\\\"path\\\":\\\"/api/v1/bookings\\\"}\""
+  }
+ ]
+}

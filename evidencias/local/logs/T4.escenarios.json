@@ -1,0 +1,8 @@
+[
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: El Spa no puede publicar horarios en la agenda de la Barbería",
+  "estado": "falla",
+  "duracion_s": 2.805,
+  "primera_linea": "Expected: \"RECHAZO: DE_OTRO_NEGOCIO\" but: was \"ACEPTADA\""
+ }
+]

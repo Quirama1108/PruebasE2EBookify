@@ -1,0 +1,26 @@
+[
+ {
+  "escenario": "Crear una reserva :: No se puede reservar un horario que ya comenzó",
+  "estado": "falla",
+  "duracion_s": 2.79,
+  "primera_linea": "Expected: \"RECHAZO: HORARIO_YA_COMENZO\" but: was \"ACEPTADA\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Ana reserva un horario que la Barbería acaba de publicar",
+  "estado": "falla",
+  "duracion_s": 0.568,
+  "primera_linea": "Expected: \"ACEPTADA\" but: was \"HTTP 500 {\\\"timestamp\\\":\\\"2026-11-23T21:21:38.052Z\\\",\\\"status\\\":500,\\\"error\\\":\\\"Internal Server Error\\\",\\\"path\\\":\\\"/api/v1/bookings\\\"}\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: El Spa no puede publicar horarios en la agenda de la Barbería",
+  "estado": "falla",
+  "duracion_s": 0.21,
+  "primera_linea": "Expected: \"RECHAZO: DE_OTRO_NEGOCIO\" but: was \"ACEPTADA\""
+ },
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede dejar una cita a nombre de Ana",
+  "estado": "falla",
+  "duracion_s": 0.981,
+  "primera_linea": "Expected: \"RECHAZADA O A NOMBRE PROPIO\" but: was \"CITA REGISTRADA A NOMBRE DE OTRO CLIENTE\""
+ }
+]

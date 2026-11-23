@@ -1,0 +1,6 @@
+.gradle/
+build/
+target/
+history/
+.env
+ambiente/01_esquema.sql

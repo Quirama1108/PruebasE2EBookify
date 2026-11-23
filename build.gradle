@@ -1,0 +1,83 @@
+plugins {
+    id 'io.github.jumosqu12.screenplayarchitecture' version '2.0.1'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.1.3'
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+group = 'co.edu.udea.certificacion'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.1.0'
+    serenityCucumberVersion = '4.1.0'
+    junit = '4.13.2'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
+
+    testImplementation "junit:junit:$rootProject.ext.junit"
+
+    //postgresql library
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+    //Additional library
+    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.12.0'
+}
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+def propiedadesDePrueba = System.properties.findAll { k, v ->
+    k.startsWith('cucumber.') || k.startsWith('serenity.') || k.startsWith('bookify.') || k.startsWith('db.') || k == 'PASSPSQL'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    systemProperty 'file.encoding', 'UTF-8'
+    systemProperties propiedadesDePrueba
+    outputs.upToDateWhen { false }
+    testLogging { events 'passed', 'failed', 'skipped'; exceptionFormat = 'short' }
+    dependsOn 'clearReports'
+    finalizedBy 'aggregate'
+}
+
+tasks.named('test') { include '**/runners/reservas/Completo.class' }
+
+['Aceptacion', 'Defectos'].each { runner ->
+    tasks.register(runner.toLowerCase(), Test) {
+        group = 'verification'
+        description = "Corre solo el runner $runner"
+        testClassesDirs = sourceSets.test.output.classesDirs
+        classpath = sourceSets.test.runtimeClasspath
+        include "**/runners/reservas/${runner}.class"
+    }
+}
+
+// El runner JUnit 4 de Cucumber no reordena escenarios; la línea de comandos sí.
+tasks.register('aleatorio', JavaExec) {
+    group = 'verification'
+    description = 'Corre la suite en orden aleatorio; -Dsemilla=N repite un orden'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'io.cucumber.core.cli.Main'
+    systemProperty 'file.encoding', 'UTF-8'
+    systemProperties propiedadesDePrueba
+    def semilla = System.getProperty('semilla', String.valueOf(System.currentTimeMillis() % 100000))
+    doFirst { println "Semilla del orden aleatorio: $semilla" }
+    // Sin el reporter de Serenity, una falla deja los pasos siguientes omitidos en los demás escenarios.
+    args '--order', "random:$semilla", '--plugin', 'io.cucumber.core.plugin.SerenityReporter', '--plugin', 'pretty', '--plugin', 'junit:build/aleatorio/resultado.xml', '--monochrome',
+         '--glue', 'co.edu.udea.certificacion.bookify.stepdefinitions', 'src/test/resources/features'
+}

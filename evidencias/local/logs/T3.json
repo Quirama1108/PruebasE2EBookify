@@ -1,0 +1,18 @@
+{
+ "corrida": "T3",
+ "comando": "./gradlew test -Dcucumber.filter.tags=@T3 --rerun-tasks",
+ "hora_utc": "2026-11-23T21:20:36Z",
+ "codigo_salida": 1,
+ "duracion_total_s": 11.3,
+ "total": 1,
+ "pasan": 0,
+ "fallan": 1,
+ "omitidos": 0,
+ "suma_escenarios_s": 3.38,
+ "fallas": [
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: Luis no puede dejar una cita a nombre de Ana",
+   "primera_linea": "Expected: \"RECHAZADA O A NOMBRE PROPIO\" but: was \"CITA REGISTRADA A NOMBRE DE OTRO CLIENTE\""
+  }
+ ]
+}

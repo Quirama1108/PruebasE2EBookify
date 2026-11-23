@@ -1,0 +1,30 @@
+{
+ "corrida": "aleatorio_222",
+ "comando": "./gradlew aleatorio -Dsemilla=222 --rerun-tasks",
+ "hora_utc": "2026-11-23T21:19:39Z",
+ "codigo_salida": 1,
+ "duracion_total_s": 17.1,
+ "total": 22,
+ "pasan": 18,
+ "fallan": 4,
+ "omitidos": 0,
+ "suma_escenarios_s": 12.89,
+ "fallas": [
+  {
+   "nombre": "Crear una reserva :: No se puede reservar un horario que ya comenzó",
+   "primera_linea": "Expected: \"RECHAZO: HORARIO_YA_COMENZO\" but: was \"ACEPTADA\""
+  },
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: Ana reserva un horario que la Barbería acaba de publicar",
+   "primera_linea": "Expected: \"ACEPTADA\" but: was \"HTTP 500 {\\\"timestamp\\\":\\\"2026-11-23T21:19:50.022Z\\\",\\\"status\\\":500,\\\"error\\\":\\\"Internal Server Error\\\",\\\"path\\\":\\\"/api/v1/bookings\\\"}\""
+  },
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: El Spa no puede publicar horarios en la agenda de la Barbería",
+   "primera_linea": "Expected: \"RECHAZO: DE_OTRO_NEGOCIO\" but: was \"ACEPTADA\""
+  },
+  {
+   "nombre": "Transacciones de punta a punta de una reserva :: Luis no puede dejar una cita a nombre de Ana",
+   "primera_linea": "Expected: \"RECHAZADA O A NOMBRE PROPIO\" but: was \"CITA REGISTRADA A NOMBRE DE OTRO CLIENTE\""
+  }
+ ]
+}

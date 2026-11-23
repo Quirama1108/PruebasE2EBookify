@@ -1,0 +1,39 @@
+== MUT 0: 22 casos, 4 fallan
+    No se puede reservar un horario que ya comenzó | java.lang.AssertionError: Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "ACEPTADA"
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+    El Spa no puede publicar horarios en la agenda de la Barbería | java.lang.AssertionError: Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:15:05.444Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+== MUT 14: 22 casos, 3 fallan
+    No se puede reservar un horario que ya comenzó | java.lang.AssertionError: Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "ACEPTADA"
+    El Spa no puede publicar horarios en la agenda de la Barbería | java.lang.AssertionError: Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:15:31.940Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+== MUT 15: 22 casos, 3 fallan
+    No se puede reservar un horario que ya comenzó | java.lang.AssertionError: Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "ACEPTADA"
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:15:58.314Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+== MUT 17: 22 casos, 3 fallan
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+    El Spa no puede publicar horarios en la agenda de la Barbería | java.lang.AssertionError: Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:16:25.223Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+== MUT 18: 22 casos, 3 fallan
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+    El Spa no puede publicar horarios en la agenda de la Barbería | java.lang.AssertionError: Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:16:51.660Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+== MUT 19: 22 casos, 13 fallan
+    No se puede reservar un horario que ya comenzó | java.lang.AssertionError: Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "atendida" en una cita que no ha comenzado | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "no asistió" en una cita que no ha comenzado | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "atendida" en una cita que está en curso | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "no asistió" en una cita que está en curso | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "atendida" en una cita cancelada | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    No se registra "no asistió" en una cita cancelada | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    Un negocio no puede registrar la asistencia de una cita de otro negocio | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    Ana reserva una cita y la Barbería la registra como atendida | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    Luis no puede tomar el horario de Ana y Ana no asiste a su cita | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+    El Spa no puede publicar horarios en la agenda de la Barbería | java.lang.AssertionError: Expected: "RECHAZO: DE_OTRO_NEGOCIO" but: was "ACEPTADA"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 400 {\"error\":\"Solicitud invalida.\"}"
+== MUT 20: 22 casos, 3 fallan
+    No se puede reservar un horario que ya comenzó | java.lang.AssertionError: Expected: "RECHAZO: HORARIO_YA_COMENZO" but: was "ACEPTADA"
+    Luis no puede dejar una cita a nombre de Ana | java.lang.AssertionError: Expected: "RECHAZADA O A NOMBRE PROPIO" but: was "CITA REGISTRADA A NOMBRE DE OTRO CLIENTE"
+    Ana reserva un horario que la Barbería acaba de publicar | java.lang.AssertionError: Expected: "ACEPTADA" but: was "HTTP 500 {\"timestamp\":\"2026-11-23T21:17:42.435Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"

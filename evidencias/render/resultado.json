@@ -1,0 +1,59 @@
+{
+ "creado_en_render": [
+  "e2e.proveedor.4f6ff51c@bookify-qa.test",
+  "e2e.cliente.4f6ff51c@bookify-qa.test",
+  "disponibilidad 42c88156-1cf7-41be-89ea-188f5d60a583"
+ ],
+ "pasos": [
+  {
+   "utc": "2026-11-23T20:25:39.809228+00:00",
+   "metodo": "GET",
+   "ruta": "/comercio/metricas/ocupacion?desde=2026-01-01&hasta=2026-01-02",
+   "peticion": null,
+   "codigo": 400,
+   "respuesta": {
+    "timestamp": "2026-11-23T20:25:39.125Z",
+    "status": 400,
+    "error": "Bad Request",
+    "path": "/api/v1/comercio/metricas/ocupacion"
+   }
+  },
+  {
+   "utc": "2026-11-23T20:25:41.311505+00:00",
+   "metodo": "POST",
+   "ruta": "/disponibilidades",
+   "peticion": {
+    "agendaServicioId": "6f085c7d-a713-4657-9fbf-17c914609768",
+    "inicioAt": "2027-09-28T15:00:00+00:00",
+    "finAt": "2027-09-28T16:00:00+00:00"
+   },
+   "codigo": 201,
+   "respuesta": {
+    "id": "42c88156-1cf7-41be-89ea-188f5d60a583",
+    "agendaServicioId": "6f085c7d-a713-4657-9fbf-17c914609768",
+    "estadoDisponibilidadId": 1,
+    "inicioAt": "2027-09-28T15:00:00Z",
+    "finAt": "2027-09-28T16:00:00Z",
+    "creadoPorUsuarioId": null,
+    "fechaCreacion": "2026-11-23T20:25:40.423369962Z"
+   }
+  },
+  {
+   "utc": "2026-11-23T20:25:43.313368+00:00",
+   "metodo": "POST",
+   "ruta": "/bookings",
+   "peticion": {
+    "clienteId": "01eabdfc-adb6-4dfc-abb4-8646fec3e5d6",
+    "disponibilidadId": "42c88156-1cf7-41be-89ea-188f5d60a583",
+    "servicioId": "f886721f-679a-4494-abc4-68e06b8db60c"
+   },
+   "codigo": 500,
+   "respuesta": {
+    "timestamp": "2026-11-23T20:25:42.725Z",
+    "status": 500,
+    "error": "Internal Server Error",
+    "path": "/api/v1/bookings"
+   }
+  }
+ ]
+}

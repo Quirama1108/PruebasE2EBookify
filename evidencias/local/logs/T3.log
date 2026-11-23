@@ -1,0 +1,40 @@
+
+> Task :compileJava
+Note: C:\Users\Quirama\Desktop\20262\CodeFactory20262\bookify-QA-e2e\e2e\src\main\java\co\edu\udea\certificacion\bookify\questions\OfertaDeHorarios.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :clearReports
+> Task :compileTestJava
+> Task :processTestResources
+> Task :testClasses
+
+> Task :test
+
+Completo > Transacciones de punta a punta de una reserva.Luis no puede dejar una cita a nombre de Ana FAILED
+    java.lang.AssertionError at ErrorTally.java:38
+
+1 test completed, 1 failed
+
+> Task :test FAILED
+
+> Task :aggregate
+Generating Serenity Reports
+  - Main report: e2e/target/site/serenity/index.html
+      - Test Root: null
+      - Requirements base directory: null
+
+[Incubating] Problems report is available at: e2e/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: e2e/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 11s
+6 actionable tasks: 6 executed

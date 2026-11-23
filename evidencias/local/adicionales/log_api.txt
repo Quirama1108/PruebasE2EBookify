@@ -1,0 +1,3 @@
+ERROR: El servicio no pertenece al comercio del recurso
+ERROR: No fue posible validar el servicio y el recurso de la reserva
+ERROR: column d.fecha_reserva does not exist

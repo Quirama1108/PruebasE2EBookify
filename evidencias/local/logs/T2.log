@@ -1,0 +1,26 @@
+
+> Task :compileJava
+Note: C:\Users\Quirama\Desktop\20262\CodeFactory20262\bookify-QA-e2e\e2e\src\main\java\co\edu\udea\certificacion\bookify\questions\OfertaDeHorarios.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :clearReports
+> Task :compileTestJava
+> Task :processTestResources
+> Task :testClasses
+
+> Task :test
+
+Completo > Transacciones de punta a punta de una reserva.Luis no puede tomar el horario de Ana y Ana no asiste a su cita PASSED
+
+> Task :aggregate
+Generating Serenity Reports
+  - Main report: e2e/target/site/serenity/index.html
+      - Test Root: null
+      - Requirements base directory: null
+
+[Incubating] Problems report is available at: e2e/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 11s
+6 actionable tasks: 6 executed

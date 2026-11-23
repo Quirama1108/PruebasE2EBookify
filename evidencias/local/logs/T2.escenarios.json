@@ -1,0 +1,8 @@
+[
+ {
+  "escenario": "Transacciones de punta a punta de una reserva :: Luis no puede tomar el horario de Ana y Ana no asiste a su cita",
+  "estado": "pasa",
+  "duracion_s": 3.504,
+  "primera_linea": ""
+ }
+]
