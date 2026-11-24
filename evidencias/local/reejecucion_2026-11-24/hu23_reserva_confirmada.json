@@ -1,0 +1,16 @@
+[
+ {
+  "caso": "PUT con reserva confirmada",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/a4317cc6-73c6-4436-869d-e3e57aab889d",
+  "codigo": 409,
+  "respuesta": "{\"error\":\"No se puede modificar el horario: tiene 1 reserva(s) confirmada(s) asociada(s). Cancélalas o reprograma primero.\"}"
+ },
+ {
+  "caso": "DELETE con reserva confirmada",
+  "metodo": "DELETE",
+  "ruta": "/api/v1/disponibilidades/a4317cc6-73c6-4436-869d-e3e57aab889d",
+  "codigo": 409,
+  "respuesta": "{\"error\":\"No se puede eliminar el horario: tiene 1 reserva(s) confirmada(s) asociada(s). Cancélalas o reprograma primero.\"}"
+ }
+]

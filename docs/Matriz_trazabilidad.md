@@ -39,6 +39,8 @@ Criterios leídos en Azure DevOps el 23/11/2026: HU-01 (#2), HU-03 (#5) y HU-17 
 
 **HU-17.4:** la cita cancelada se siembra por JDBC porque cancelar por la API responde 500 (ver adicionales).
 
+**Reejecución 24/11/2026 (código `8884acd`, 3 corridas completas):** mismo resultado, 18 pasan y 4 fallan por los mismos defectos; #298 a #300 siguen en 500. Detalle en [Resumen.md](../evidencias/local/reejecucion_2026-11-24/Resumen.md).
+
 ## Ambigüedades por confirmar con el equipo
 1. **HU-03.2:** Azure pide informar que «el horario ya no está disponible»; el producto dice «La disponibilidad ya fue reservada.». Se acepta por sentido.
 2. **HU-03.1c:** el diseño pide rechazar; #291 pide que la reserva quede a nombre del usuario autenticado. Se acepta cualquiera de las dos salidas y se exige que Ana quede sin cita.

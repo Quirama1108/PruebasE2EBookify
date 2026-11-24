@@ -1,0 +1,30 @@
+[
+ {
+  "caso": "reservar",
+  "metodo": "POST",
+  "ruta": "/api/v1/bookings",
+  "codigo": 201,
+  "respuesta": "{\"id\":\"9042bfc5-686f-457f-a594-8af26688bfb4\",\"clienteId\":\"3cfbac6d-91b9-4df1-86de-6b8dc110718a\",\"disponibilidadId\":\"aef1acda-fee9-4d31-8211-aaa4133bb736\",\"estadoReservaId\":1,\"fechaReserva\":\"2026-11-24T00:12:44.7796037-05:00\",\"notas\":null}"
+ },
+ {
+  "caso": "#298 cancelar",
+  "metodo": "PATCH",
+  "ruta": "/api/v1/bookings/9042bfc5-686f-457f-a594-8af26688bfb4/cancel",
+  "codigo": 500,
+  "respuesta": "{\"timestamp\":\"2026-11-24T05:12:44.896Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings/9042bfc5-686f-457f-a594-8af26688bfb4/cancel\"}"
+ },
+ {
+  "caso": "#299 historial",
+  "metodo": "GET",
+  "ruta": "/api/v1/reservas/historial",
+  "codigo": 500,
+  "respuesta": "{\"timestamp\":\"2026-11-24T05:12:44.903Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/reservas/historial\"}"
+ },
+ {
+  "caso": "#300 servicio ajeno",
+  "metodo": "POST",
+  "ruta": "/api/v1/bookings",
+  "codigo": 500,
+  "respuesta": "{\"timestamp\":\"2026-11-24T05:12:45.091Z\",\"status\":500,\"error\":\"Internal Server Error\",\"path\":\"/api/v1/bookings\"}"
+ }
+]

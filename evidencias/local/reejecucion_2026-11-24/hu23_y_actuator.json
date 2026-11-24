@@ -1,0 +1,107 @@
+[
+ {
+  "caso": "publicar",
+  "metodo": "POST",
+  "ruta": "/api/v1/disponibilidades",
+  "codigo": 201,
+  "respuesta": "{\"id\":\"0a123438-0f43-4359-a3ef-8cf8fe026ad6\",\"agendaServicioId\":\"aaaaaaaa-0000-4000-8000-000000000001\",\"estadoDisponibilidadId\":1,\"inicioAt\":\"2028-03-01T13:00:00Z\",\"finAt\":\"2028-03-01T17:00:00Z\",\"creadoPorUsuarioId\":null,\"fechaCreacion\":\"2026-11-24T00:09:32.070783-05:00\"}"
+ },
+ {
+  "caso": "PUT ajeno",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/0a123438-0f43-4359-a3ef-8cf8fe026ad6",
+  "codigo": 404,
+  "respuesta": "{\"error\":\"Horario no encontrado\"}"
+ },
+ {
+  "caso": "DELETE ajeno",
+  "metodo": "DELETE",
+  "ruta": "/api/v1/disponibilidades/0a123438-0f43-4359-a3ef-8cf8fe026ad6",
+  "codigo": 404,
+  "respuesta": "{\"error\":\"Horario no encontrado\"}"
+ },
+ {
+  "caso": "PUT inexistente",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/11111111-1111-4111-8111-111111111111",
+  "codigo": 404,
+  "respuesta": "{\"error\":\"Horario no encontrado\"}"
+ },
+ {
+  "caso": "DELETE inexistente",
+  "metodo": "DELETE",
+  "ruta": "/api/v1/disponibilidades/11111111-1111-4111-8111-111111111111",
+  "codigo": 404,
+  "respuesta": "{\"error\":\"Horario no encontrado\"}"
+ },
+ {
+  "caso": "PUT rango invalido",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/0a123438-0f43-4359-a3ef-8cf8fe026ad6",
+  "codigo": 400,
+  "respuesta": "{\"error\":\"La hora final debe ser mayor que la hora inicial\"}"
+ },
+ {
+  "caso": "PUT id no UUID",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/abc",
+  "codigo": 400,
+  "respuesta": "{\"error\":\"Valor inválido para 'id'. Las fechas usan el formato yyyy-MM-dd\"}"
+ },
+ {
+  "caso": "historial fecha invalida",
+  "metodo": "GET",
+  "ruta": "/api/v1/comercio/reservas?desde=01-03-2028&hasta=2028-03-02",
+  "codigo": 400,
+  "respuesta": "{\"error\":\"Valor inválido para 'desde'. Las fechas usan el formato yyyy-MM-dd\"}"
+ },
+ {
+  "caso": "historial ok",
+  "metodo": "GET",
+  "ruta": "/api/v1/comercio/reservas?desde=2028-03-01&hasta=2028-03-02",
+  "codigo": 200,
+  "respuesta": "{\"total\":0,\"mensaje\":\"No hay reservas en el rango de fechas seleccionado\",\"reservas\":[]}"
+ },
+ {
+  "caso": "PUT propio",
+  "metodo": "PUT",
+  "ruta": "/api/v1/disponibilidades/0a123438-0f43-4359-a3ef-8cf8fe026ad6",
+  "codigo": 200,
+  "respuesta": "{\"id\":\"0a123438-0f43-4359-a3ef-8cf8fe026ad6\",\"agendaServicioId\":\"aaaaaaaa-0000-4000-8000-000000000001\",\"estadoDisponibilidadId\":1,\"inicioAt\":\"2028-03-01T14:00:00Z\",\"finAt\":\"2028-03-01T18:00:00Z\",\"creadoPorUsuarioId\":null,\"fechaCreacion\":\"2026-11-24T05:09:32.070783Z\"}"
+ },
+ {
+  "caso": "DELETE propio",
+  "metodo": "DELETE",
+  "ruta": "/api/v1/disponibilidades/0a123438-0f43-4359-a3ef-8cf8fe026ad6",
+  "codigo": 204,
+  "respuesta": ""
+ },
+ {
+  "caso": "health",
+  "metodo": "GET",
+  "ruta": "/actuator/health",
+  "codigo": 200,
+  "respuesta": "{\"groups\":[\"liveness\",\"readiness\"],\"status\":\"UP\"}"
+ },
+ {
+  "caso": "info anon",
+  "metodo": "GET",
+  "ruta": "/actuator/info",
+  "codigo": 401,
+  "respuesta": ""
+ },
+ {
+  "caso": "prometheus anon",
+  "metodo": "GET",
+  "ruta": "/actuator/prometheus",
+  "codigo": 200,
+  "respuesta": "# HELP application_ready_time_seconds Time taken for the application to be ready to service requests\n# TYPE application_ready_time_seconds gauge\napplication_ready_time_seconds{main_application_class=\"udea.fabrica.bookify.BookifyApplication\"} 4.51\n# HELP application_started_time_seconds Time taken to"
+ },
+ {
+  "caso": "env anon",
+  "metodo": "GET",
+  "ruta": "/actuator/env",
+  "codigo": 401,
+  "respuesta": ""
+ }
+]
