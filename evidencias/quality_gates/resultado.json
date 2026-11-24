@@ -1,0 +1,118 @@
+{
+ "herramienta": "SonarQube Community 26.11.0.134175",
+ "perfil": "Sonar way comprehensive",
+ "unidad_deuda": "minutos",
+ "d903328": {
+  "metricas": {
+   "coverage": "95.3",
+   "complexity": "475",
+   "minor_violations": "45",
+   "code_smells": "59",
+   "duplicated_lines_density": "1.4",
+   "security_hotspots": "0",
+   "sqale_index": "180",
+   "critical_violations": "0",
+   "blocker_violations": "0",
+   "bugs": "0",
+   "info_violations": "14",
+   "major_violations": "0",
+   "tests": "223",
+   "ncloc": "3898",
+   "vulnerabilities": "0",
+   "line_coverage": "97.9",
+   "skipped_tests": "1"
+  },
+  "mayor_complejidad": [
+   [
+    "BookingService.java",
+    "28"
+   ],
+   [
+    "GlobalExceptionHandler.java",
+    "27"
+   ],
+   [
+    "Booking.java",
+    "26"
+   ]
+  ],
+  "sobre_minor": []
+ },
+ "68147f7": {
+  "metricas": {
+   "coverage": "76.5",
+   "complexity": "662",
+   "minor_violations": "47",
+   "code_smells": "67",
+   "duplicated_lines_density": "1.0",
+   "security_hotspots": "0",
+   "sqale_index": "239",
+   "critical_violations": "1",
+   "blocker_violations": "0",
+   "bugs": "0",
+   "info_violations": "16",
+   "major_violations": "4",
+   "tests": "254",
+   "ncloc": "5377",
+   "vulnerabilities": "1",
+   "line_coverage": "79.2",
+   "skipped_tests": "1"
+  },
+  "mayor_complejidad": [
+   [
+    "BookingService.java",
+    "34"
+   ],
+   [
+    "GlobalExceptionHandler.java",
+    "30"
+   ],
+   [
+    "Booking.java",
+    "26"
+   ]
+  ],
+  "sobre_minor": [
+   {
+    "severidad": "CRITICAL",
+    "tipo": "CODE_SMELL",
+    "regla": "java:S1452",
+    "archivo": "MerchantOccupancyMetricsController.java",
+    "linea": 21,
+    "esfuerzo": "20min"
+   },
+   {
+    "severidad": "MAJOR",
+    "tipo": "VULNERABILITY",
+    "regla": "java:S2077",
+    "archivo": "EmailBookingConfirmationAdapter.java",
+    "linea": 88,
+    "esfuerzo": "20min"
+   },
+   {
+    "severidad": "MAJOR",
+    "tipo": "CODE_SMELL",
+    "regla": "java:S5778",
+    "archivo": "ProviderBookingHistoryUseCaseImplTest.java",
+    "linea": 47,
+    "esfuerzo": "5min"
+   },
+   {
+    "severidad": "MAJOR",
+    "tipo": "CODE_SMELL",
+    "regla": "java:S5778",
+    "archivo": "ProviderBookingHistoryUseCaseImplTest.java",
+    "linea": 54,
+    "esfuerzo": "5min"
+   },
+   {
+    "severidad": "MAJOR",
+    "tipo": "CODE_SMELL",
+    "regla": "java:S5778",
+    "archivo": "ProviderBookingHistoryUseCaseImplTest.java",
+    "linea": 60,
+    "esfuerzo": "5min"
+   }
+  ]
+ }
+}

@@ -27,6 +27,7 @@ Reporte: `target/site/serenity/index.html` (cada corrida borra el anterior; `ale
 ## Entregables
 
 - [Informe E2E](docs/Informe_E2E_Sprint3.docx), [plan](docs/Plan_E2E.md), [matriz](docs/Matriz_trazabilidad.md) y [revisión independiente](docs/Revision_independiente.md)
+- [Reporte de Quality Gates](docs/Reporte_Quality_Gates_Sprint3.md)
 - [Resumen de ejecución](evidencias/local/Resumen_ejecucion.md) y reporte Serenity: descomprima `evidencias/local/reporte_serenity.zip` y abra `index.html`
 
 ## Configuración
