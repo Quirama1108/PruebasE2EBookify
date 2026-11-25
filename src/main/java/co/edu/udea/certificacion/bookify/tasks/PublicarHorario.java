@@ -4,9 +4,9 @@ import co.edu.udea.certificacion.bookify.interactions.Post;
 import co.edu.udea.certificacion.bookify.models.Horario;
 import co.edu.udea.certificacion.bookify.models.Negocio;
 import co.edu.udea.certificacion.bookify.models.Sesion;
+import co.edu.udea.certificacion.bookify.questions.Respuesta;
 import co.edu.udea.certificacion.bookify.utils.Memoria;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
@@ -44,11 +44,8 @@ public class PublicarHorario implements Task {
                 .header("Authorization", sesion.autorizacion())
                 .body(Map.of("agendaServicioId", duenio.agenda(),
                         "inicioAt", inicio.toString(), "finAt", fin.toString()))));
-        Response respuesta = SerenityRest.lastResponse();
-        actor.remember(Memoria.RESPUESTA, respuesta);
-        if (respuesta.statusCode() == 201) {
-            actor.remember(Memoria.HORARIO, new Horario(respuesta.path("id"), inicio, fin));
-        }
+        actor.remember(Memoria.RESPUESTA, SerenityRest.lastResponse());
+        actor.remember(Memoria.HORARIO, new Horario(actor.asksFor(Respuesta.campo("id")), inicio, fin));
     }
 
     private OffsetDateTime a(String hora) {

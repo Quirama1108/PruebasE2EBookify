@@ -11,9 +11,9 @@ Característica: Registrar asistencia o inasistencia
   Esquema del escenario: No se registra "<resultado>" en una cita que <momento>
     Dado que Ana tiene una cita confirmada con la Barbería que <momento>
     Cuando la Barbería intenta marcar la cita de Ana como "<resultado>"
-    Entonces Bookify rechaza el registro porque la cita no ha terminado
+    Entonces la Barbería recibe un rechazo porque la cita no ha terminado
     Y la cita de Ana figura como "confirmada" en el historial de la Barbería
-    Y no queda registro de asistencia de esa cita
+    Y no queda registro de asistencia de la cita de Ana
 
     Ejemplos:
       | momento         | resultado  |
@@ -26,9 +26,9 @@ Característica: Registrar asistencia o inasistencia
   Esquema del escenario: No se registra "<resultado>" en una cita cancelada
     Dado que Ana tenía una cita con la Barbería que fue cancelada y cuya hora ya pasó
     Cuando la Barbería intenta marcar la cita de Ana como "<resultado>"
-    Entonces Bookify rechaza el registro porque la cita está cancelada
+    Entonces la Barbería recibe un rechazo porque la cita está cancelada
     Y la cita de Ana figura como "cancelada" en el historial de la Barbería
-    Y no queda registro de asistencia de esa cita
+    Y no queda registro de asistencia de la cita de Ana
 
     Ejemplos:
       | resultado  |
@@ -39,6 +39,6 @@ Característica: Registrar asistencia o inasistencia
   Escenario: Un negocio no puede registrar la asistencia de una cita de otro negocio
     Dado que Ana tiene una cita confirmada con la Barbería que ya terminó
     Cuando el Spa intenta marcar la cita de Ana como "atendida"
-    Entonces Bookify rechaza el registro porque la cita es de otro negocio
+    Entonces el Spa recibe un rechazo porque la cita es de otro negocio
     Y la cita de Ana figura como "confirmada" en el historial de la Barbería
-    Y no queda registro de asistencia de esa cita
+    Y no queda registro de asistencia de la cita de Ana

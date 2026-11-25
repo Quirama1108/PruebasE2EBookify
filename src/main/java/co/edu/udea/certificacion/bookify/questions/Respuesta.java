@@ -20,6 +20,14 @@ public final class Respuesta {
         });
     }
 
+    /** Valor del campo, o null si la respuesta no es JSON o no lo trae. */
+    public static Question<String> campo(String nombre) {
+        return Question.about("el campo " + nombre + " de la respuesta").answeredBy(actor -> {
+            Response respuesta = actor.recall(Memoria.RESPUESTA);
+            return respuesta.asString().startsWith("{") ? respuesta.path(nombre) : null;
+        });
+    }
+
     /** Devuelve "RECHAZO: motivo" solo si es una respuesta 4xx que explica el motivo; si no, lo que respondió Bookify. */
     public static Question<String> rechazoPor(Motivo motivo) {
         return Question.about("el rechazo por " + motivo).answeredBy(actor -> {

@@ -21,10 +21,11 @@ import net.serenitybdd.screenplay.Actor;
 
 import java.util.Collection;
 
-import static co.edu.udea.certificacion.bookify.stepdefinitions.DisponibilidadStepDefinitions.rechazoPor;
 import static co.edu.udea.certificacion.bookify.stepdefinitions.Escenario.barberia;
+import static co.edu.udea.certificacion.bookify.stepdefinitions.Escenario.aceptada;
 import static co.edu.udea.certificacion.bookify.stepdefinitions.Escenario.actor;
 import static co.edu.udea.certificacion.bookify.stepdefinitions.Escenario.horario;
+import static co.edu.udea.certificacion.bookify.stepdefinitions.Escenario.rechazoPor;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
@@ -57,33 +58,33 @@ public class ReservaStepDefinitions {
         actor(nombre).attemptsTo(ReservarHorario.aNombreDe(actor(titular), horario()));
     }
 
-    @Dado("que Ana tiene una cita confirmada con la Barbería que no ha comenzado")
-    public void tieneUnaCitaConfirmada() {
+    @Dado("que {cliente} tiene una cita confirmada con la Barbería que no ha comenzado")
+    public void tieneUnaCitaConfirmada(String nombre) {
         barberia().wasAbleTo(PrepararHorario.futuro());
-        reserva("Ana");
-        quedaConfirmada("Ana");
+        reserva(nombre);
+        quedaConfirmada(nombre);
     }
 
-    @Dado("que Ana tiene una cita confirmada con la Barbería que está en curso")
-    public void tieneUnaCitaEnCurso() {
-        tieneUnaCitaConfirmada();
+    @Dado("que {cliente} tiene una cita confirmada con la Barbería que está en curso")
+    public void tieneUnaCitaEnCurso(String nombre) {
+        tieneUnaCitaConfirmada(nombre);
         barberia().wasAbleTo(TrasladarCita.a(Momento.EN_CURSO));
     }
 
-    @Dado("que Ana tiene una cita confirmada con la Barbería que ya terminó")
-    public void tieneUnaCitaTerminada() {
-        tieneUnaCitaConfirmada();
+    @Dado("que {cliente} tiene una cita confirmada con la Barbería que ya terminó")
+    public void tieneUnaCitaTerminada(String nombre) {
+        tieneUnaCitaConfirmada(nombre);
         terminaLaHora();
     }
 
-    @Dado("que Ana tenía una cita con la Barbería que fue cancelada y cuya hora ya pasó")
-    public void teniaUnaCitaCancelada() {
-        tieneUnaCitaConfirmada();
-        actor("Ana").wasAbleTo(PrepararCancelacion.deSuCita());
+    @Dado("que {cliente} tenía una cita con la Barbería que fue cancelada y cuya hora ya pasó")
+    public void teniaUnaCitaCancelada(String nombre) {
+        tieneUnaCitaConfirmada(nombre);
+        actor(nombre).wasAbleTo(PrepararCancelacion.deSuCita());
         terminaLaHora();
     }
 
-    @Cuando("termina la hora de la cita de Ana")
+    @Cuando("termina la hora de la cita")
     public void terminaLaHora() {
         barberia().wasAbleTo(TrasladarCita.a(Momento.TERMINADO));
     }
@@ -91,7 +92,7 @@ public class ReservaStepDefinitions {
     @Entonces("la reserva de {cliente} queda confirmada")
     public void quedaConfirmada(String nombre) {
         Actor cliente = actor(nombre);
-        cliente.should(seeThat(Respuesta.recibida(), equalTo("ACEPTADA")));
+        cliente.should(aceptada("la respuesta de Bookify"));
         barberia().should(seeThat(HistorialDelNegocio.paraLasCitasDe(cliente), contains("CONFIRMADA")));
     }
 

@@ -11,11 +11,11 @@ Característica: Transacciones de punta a punta de una reserva
     Entonces Ana encuentra ese horario en la oferta
     Cuando Ana reserva ese horario
     Entonces la reserva de Ana queda confirmada
-    Y ese horario ya no aparece en la oferta de la Barbería
-    Cuando termina la hora de la cita de Ana
+    Y Ana ya no ve ese horario en la oferta de la Barbería
+    Cuando termina la hora de la cita
     Y la Barbería marca la cita de Ana como "atendida"
     Entonces la cita de Ana figura como "atendida" en el historial de la Barbería
-    Y queda registrado que la Barbería cambió la cita de "confirmada" a "atendida"
+    Y queda registrado que la Barbería cambió la cita de Ana de "confirmada" a "atendida"
 
   @T2 @HU-03 @HU-17 @aceptacion
   Escenario: Luis no puede tomar el horario de Ana y Ana no asiste a su cita
@@ -25,10 +25,10 @@ Característica: Transacciones de punta a punta de una reserva
     Cuando Luis intenta reservar ese horario
     Entonces Bookify rechaza la reserva de Luis porque el horario ya no está disponible
     Y el horario conserva una única reserva, a nombre de Ana
-    Cuando termina la hora de la cita de Ana
+    Cuando termina la hora de la cita
     Y la Barbería marca la cita de Ana como "no asistió"
     Entonces la cita de Ana figura como "no asistió" en el historial de la Barbería
-    Y queda registrado que la Barbería cambió la cita de "confirmada" a "no asistió"
+    Y queda registrado que la Barbería cambió la cita de Ana de "confirmada" a "no asistió"
 
   @T3 @HU-03 @defecto @bug-291
   Escenario: Luis no puede dejar una cita a nombre de Ana
@@ -41,7 +41,7 @@ Característica: Transacciones de punta a punta de una reserva
   Escenario: El Spa no puede publicar horarios en la agenda de la Barbería
     Dado que la Barbería tiene un día sin horarios publicados
     Cuando el Spa intenta publicar un horario ese día en la agenda de la Barbería
-    Entonces Bookify rechaza la publicación porque la agenda es de otro negocio
+    Entonces el Spa recibe un rechazo porque la agenda es de otro negocio
     Y la Barbería sigue sin horarios publicados ese día
 
   @T5 @HU-01 @HU-03 @defecto @bug-187
@@ -50,4 +50,4 @@ Característica: Transacciones de punta a punta de una reserva
     Y la Barbería publicó ese día un horario de "10:00" a "11:00"
     Cuando Ana reserva ese horario
     Entonces la reserva de Ana queda confirmada
-    Y ese horario ya no aparece en la oferta de la Barbería
+    Y Ana ya no ve ese horario en la oferta de la Barbería

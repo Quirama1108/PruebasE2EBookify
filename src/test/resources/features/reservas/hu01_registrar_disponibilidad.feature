@@ -11,15 +11,15 @@ Característica: Registrar disponibilidad del proveedor
   Escenario: Un horario válido queda disponible y los clientes lo ven
     Dado que la Barbería tiene un día sin horarios publicados
     Cuando la Barbería publica ese día un horario de "10:00" a "11:00"
-    Entonces el horario de "10:00" a "11:00" queda guardado como disponible
-    Y los clientes ven el horario de "10:00" a "11:00" en la oferta de la Barbería
+    Entonces el horario de "10:00" a "11:00" queda guardado como disponible en la agenda de la Barbería
+    Y Ana ve el horario de "10:00" a "11:00" en la oferta de la Barbería
 
   @aceptacion
   Esquema del escenario: Se rechaza un horario que <cruce>
     Dado que la Barbería tiene un día sin horarios publicados
     Y la Barbería publicó ese día un horario de "10:00" a "11:00"
     Cuando la Barbería intenta publicar ese día un horario de "<inicio>" a "<fin>"
-    Entonces Bookify rechaza la publicación e informa un conflicto de horarios
+    Entonces la Barbería recibe un rechazo por conflicto de horarios
     Y ese día la Barbería conserva únicamente el horario de "10:00" a "11:00"
 
     Ejemplos:
@@ -35,13 +35,13 @@ Característica: Registrar disponibilidad del proveedor
     Dado que la Barbería tiene un día sin horarios publicados
     Y la Barbería publicó ese día un horario de "10:00" a "11:00"
     Cuando la Barbería publica ese día un horario de "11:00" a "12:00"
-    Entonces el horario de "11:00" a "12:00" queda guardado como disponible
+    Entonces el horario de "11:00" a "12:00" queda guardado como disponible en la agenda de la Barbería
 
   @aceptacion
   Esquema del escenario: Se rechaza un horario cuya hora final <motivo>
     Dado que la Barbería tiene un día sin horarios publicados
     Cuando la Barbería intenta publicar ese día un horario de "<inicio>" a "<fin>"
-    Entonces Bookify rechaza la publicación porque las horas no son válidas
+    Entonces la Barbería recibe un rechazo porque las horas no son válidas
     Y la Barbería sigue sin horarios publicados ese día
 
     Ejemplos:

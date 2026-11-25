@@ -4,9 +4,9 @@ import co.edu.udea.certificacion.bookify.interactions.Post;
 import co.edu.udea.certificacion.bookify.models.Horario;
 import co.edu.udea.certificacion.bookify.models.Negocio;
 import co.edu.udea.certificacion.bookify.models.Sesion;
+import co.edu.udea.certificacion.bookify.questions.Respuesta;
 import co.edu.udea.certificacion.bookify.utils.Memoria;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
@@ -36,11 +36,8 @@ public class ReservarHorario implements Task {
                 .header("Authorization", sesion.autorizacion())
                 .body(Map.of("clienteId", sesionTitular.idUsuario(), "disponibilidadId", horario.id(),
                         "servicioId", Negocio.BARBERIA.servicio()))));
-        Response respuesta = SerenityRest.lastResponse();
-        actor.remember(Memoria.RESPUESTA, respuesta);
-        if (respuesta.statusCode() == 201) {
-            actor.remember(Memoria.CITA, respuesta.<String>path("id"));
-        }
+        actor.remember(Memoria.RESPUESTA, SerenityRest.lastResponse());
+        actor.remember(Memoria.CITA, actor.asksFor(Respuesta.campo("id")));
     }
 
     public static ReservarHorario aNombreDe(Actor titular, Horario horario) {
